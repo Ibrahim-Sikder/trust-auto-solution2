@@ -185,18 +185,20 @@ const QuotationView = () => {
               >
                 {/* Add 'print-mode' class to apply print styles */}
                 <div>
-                  <div className=" mb-2 mx-auto text-center border-b-2 border-[#351E98] pb-2">
-                    <div className="flex justify-between items-center mb-2">
-                      <img className="w-[150px] " src={logo} alt="logo" />
-                      <h2 className="trustAutoTitle">Trust Auto Solution </h2>
+                <div className=" mb-2 mx-auto text-center border-b-2 border-[#351E98] pb-2">
+                      <div className="flex  justify-between items-center mb-2">
+                        <img className="w-[150px] " src={logo} alt="logo" />
+                        <h2 className="trustAutoTitle ">
+                          Trust Auto Solution{" "}
+                        </h2>
+                      </div>
+                      <p className="text-[#426EA0] italic text-sm">
+                        It's trusted computerized Organization for all kinds of
+                        vehicle check up & maintenance such as computerized
+                        Engine Analysis, Engine tune up, Denting, Painting,
+                        Engine, AC, Electrical Works & Car Wash.{" "}
+                      </p>
                     </div>
-                    <p className="text-[#426EA0] italic text-sm">
-                      It's trusted computerized Organization for all kinds of
-                      vehicle check up & maintenance such as computerized Engine
-                      Analysis, Engine tune up, Denting, Painting, Engine, AC,
-                      Electrical Works & Car Wash.{" "}
-                    </p>
-                  </div>
 
                   {page === 1 && (
                     <div>
@@ -398,21 +400,27 @@ const QuotationView = () => {
                 </div>
               </div>
             </div>
+
+            {
+              page === lastValue &&  <div className="printInvoiceBtnGroup pb-20">
+              <button onClick={handlePrint}>Print </button>
+              <button onClick={() => toPDF()}>Pdf </button>
+      
+              <Link to="/dashboard/invoice">
+                <button> Edit </button>
+              </Link>
+      
+              <Link to="/dashboard/qutation">
+                {" "}
+                <button> Qutation </button>
+              </Link>
+            </div>
+            }
+
+
           </main>
         ))}
-      <div className="printInvoiceBtnGroup pb-20">
-        <button onClick={handlePrint}>Print </button>
-        <button onClick={() => toPDF()}>Pdf </button>
-
-        <Link to="/dashboard/invoice">
-          <button> Edit </button>
-        </Link>
-
-        <Link to="/dashboard/qutation">
-          {" "}
-          <button> Qutation </button>
-        </Link>
-      </div>
+     
     </div>
   );
 };

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 import React, { useRef, useEffect, useState } from 'react';
 import { useReactToPrint } from 'react-to-print';
@@ -37,9 +38,8 @@ const PdfGenerator = () => {
       useCORS: true,
     },
   };
-  
 
-  // Function to get the target element
+
   const getTargetElement = () => document.getElementById('content-id');
 
   useEffect(() => {
@@ -55,37 +55,36 @@ const PdfGenerator = () => {
 
   const downloadPdf = async () => {
     const targetElement = componentRef.current;
-  
+
     if (!targetElement) {
       console.error(`Ref for target element not found`);
       return;
     }
-  
+
     const canvas = await html2canvas(targetElement, {
-      scale: 2, // Increase scale for better quality
+      scale: 2, 
     });
-  
+
     const imgData = canvas.toDataURL('image/png');
     const pdf = new jsPDF({
-      orientation: 'portrait', // Set to 'portrait' for A4 size
+      orientation: 'portrait',
       unit: 'mm',
       format: 'a4',
     });
-  
-    // Set a fixed height of 500px
-    const pdfWidth = 210; // A4 width in mm
-    const pdfHeight = 500; // Set to your desired height in px
-  
-    const imgWidth = pdfWidth - 20; // Adjusted width after subtracting left and right padding
+
+
+    const pdfWidth = 210; 
+    const pdfHeight = 500; 
+
+    const imgWidth = pdfWidth - 20;
     const imgHeight = (canvas.height * imgWidth) / canvas.width;
-  
-    // Add image to PDF with padding and fixed height
+
     pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight, null, null, null, pdfHeight);
-  
+
     pdf.save('downloaded.pdf');
   };
-  
-  
+
+
   return (
     <section className="viewMoneyReceiptWrap">
       <div className="moneyWraps">
@@ -129,8 +128,8 @@ const PdfGenerator = () => {
               </div>
             </div>
             <div className="receivedBtn2 mt-2">
-  <button className="print-button">Receipt</button>
-</div>
+              <button className="print-button">Receipt</button>
+            </div>
 
             <div className="flex justify-between ">
               <small>Serial No: 01</small>
@@ -141,7 +140,7 @@ const PdfGenerator = () => {
                 <label className="receivedMoneyText2">
                   Received with thanks from{" "}
                 </label>
-                {/* <input disabled  type="text" autoComplete='off' /> */}
+        
                 <span className="text-sm">{specificMoneyReceipt.thanks_from}</span>
               </div>
               <div className=" payAdvance mt-2">
@@ -179,20 +178,20 @@ const PdfGenerator = () => {
               <div className="amount moneyReceiptAmount mt-2">
                 <div className="flex items-center justify-center receivedField">
                   <label className="totalAmountText">Total Amount Tk:</label>
-                  <input readOnly className="amountTextBG" type="text" defaultValue={specificMoneyReceipt.total_amount}/>
+                  <input readOnly className="amountTextBG" type="text" defaultValue={specificMoneyReceipt.total_amount} />
                 </div>
                 <div className="flex items-center justify-center receivedField">
                   <label>Advance:</label>
-                  <input readOnly className="amountTextBG" type="text" defaultValue={specificMoneyReceipt.advance}/>
+                  <input readOnly className="amountTextBG" type="text" defaultValue={specificMoneyReceipt.advance} />
                 </div>
                 <div className="flex items-center justify-center receivedField">
                   <label>Remaining:</label>
-                  <input readOnly className="amountTextBG" type="text" defaultValue={specificMoneyReceipt.remaining}/>
+                  <input readOnly className="amountTextBG" type="text" defaultValue={specificMoneyReceipt.remaining} />
                 </div>
               </div>
-              <div className="wordTaka mt-2 receivedField flex items-center justify-center">
+              <div className="wordTaka mt-2 receivedField flex items-center ">
                 <label className="tkText">in word (taka) </label>
-                <span>{ specificMoneyReceipt.taka_in_word}</span>
+                <span className='wordInTaka'>{specificMoneyReceipt.taka_in_word}</span>
               </div>
             </div>
             <div className="mt-5">
@@ -203,7 +202,7 @@ const PdfGenerator = () => {
       </div>
       <div className="moneyReceiptBtnGroup mt-5">
         <button onClick={handlePrint}>Print </button>
-        <button onClick={downloadPdf}>Pdf </button>
+        <button onClick={downloadPdf}>Download </button>
         <Link to={`/dashboard/money-receipt-update?id=${id}`}>
           <button> Edit </button>
         </Link>

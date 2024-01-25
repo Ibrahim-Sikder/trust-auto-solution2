@@ -147,18 +147,22 @@ const Home = () => {
 
 
   return (
-    <div className='mt-10'>
+    <div className='my-10'>
       <div className="dashBoardRight  ">
-        <div className="md:flex items-center justify-between md:p-[0px] lg:p-[18px]">
+
+   
+
+        <div className="md:flex items-center flex-wrap justify-between md:p-[0px] lg:p-[18px]">
         <div className="flex items-center justify-center ">
             {/* <input autoComplete="off" type="text" placeholder='Search' /> */}
             <TextField className="searchInptu" id="outlined-basic" label="Search..." variant="outlined" />
-            <button className="searchBtn">Search </button>
+            <button className="searchBtn searchBtn2">Search </button>
           </div>
-          <div className="mt-3 md:mt-0 flex items-center">
+          <div className="mt-3 md:mt-5 flex items-center">
             <Link to='/dashboard/addjob'><button className="btn btn-outline border-0 border-b-4  ">Job Card </button></Link>
             <Link to='/dashboard/qutation'> <button className="mx-2 btn btn-outline border-0 border-b-4">Qutation</button></Link>
             <Link to='/dashboard/invoice'> <button className="btn btn-outline border-0 border-b-4 ">Invoice</button></Link>
+            <Link to='/dashboard/money-receive'> <button className="btn btn-outline border-0 border-b-4 ">Money Receipt</button></Link>
           </div>
          
 
@@ -168,7 +172,7 @@ const Home = () => {
             <h2 className="text-[#654FC3] font-bold text-2xl">Admin Dashboard</h2>
           </div>
         </div>
-        <div className="flex justify-between mb-5 ">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 place-content-center gap-10  mb-5 ">
         <div className="completedServiceCards flex justify-between items-center rounded-lg bg-[#37A248] text-white ">
               <div className="mr-5">
                 <div>Completed Services</div>
@@ -207,7 +211,7 @@ const Home = () => {
               </div>
             </div>
         </div>
-        <div className="flex justify-between">
+        <div className="grid grid-cols-2 md:grid-cols-2 place-content-center lg:grid-cols-4 gap-10 ">
         <div className="completedServiceCards flex justify-between items-center rounded-lg bg-[#f77f00] text-white">
               <div className="mr-5">
                 <div>Paid Services Bill</div>
@@ -247,7 +251,7 @@ const Home = () => {
             </div>
         </div>
 
-        <div className="flex justify-between px-5 mt-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 place-content-center gap-10 px-5 mt-24">
           <div className="">
             <BarChart
               width={600}

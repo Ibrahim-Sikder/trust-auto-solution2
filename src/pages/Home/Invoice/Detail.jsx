@@ -214,7 +214,7 @@ const Detail = () => {
               <div>
                 <div className="py-5 px-5 invoicePrint">
                   <div>
-                    <div className=" mb-2 mx-auto text-center border-b-2 border-[#351E98] pb-2">
+                  <div className=" mb-2 mx-auto text-center border-b-2 border-[#351E98] pb-2">
                       <div className="flex  justify-between items-center mb-2">
                         <img className="w-[150px] " src={logo} alt="logo" />
                         <h2 className="trustAutoTitle ">
@@ -438,7 +438,9 @@ const Detail = () => {
                   </div>
                 </div>
               </div>
-              <div className="printInvoiceBtnGroup">
+              
+              {
+                page === lastValue && <div className="printInvoiceBtnGroup">
                 <button onClick={handlePrint}>Print </button>
                 <button onClick={() => toPDF()}>Pdf </button>
 
@@ -451,6 +453,7 @@ const Detail = () => {
                   <button> Qutation </button>
                 </Link>
               </div>
+              }
             </main>
           ))}
       </div>

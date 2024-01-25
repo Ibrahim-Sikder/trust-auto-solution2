@@ -60,6 +60,9 @@
 	margin-left: 5px;
 	color: #fff;
 }
+.searchBtn2 {
+	height: 54px !important;
+}
 .chart {
 	display: flex;
 	align-items: center;

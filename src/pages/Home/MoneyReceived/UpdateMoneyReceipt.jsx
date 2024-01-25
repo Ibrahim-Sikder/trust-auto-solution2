@@ -60,7 +60,7 @@ const UpdateMoneyReceipt = () => {
   };
 
   return (
-    <div className="moneyFormWrap ">
+    <div className="moneyReceptWrap ">
       <div className="moneyRecieved ">
         <div className="logoWrap ">
           <img className="" src={logo} alt="logo" />
@@ -74,7 +74,6 @@ const UpdateMoneyReceipt = () => {
           </small>
         </div>
         <div>
-          <h3>Hotline</h3>
           <div className="flex items-center mt-1">
             <LocalPhone className="hotlineIcon" />
             <b className="ml-1">+880 1821-216465</b>
@@ -221,16 +220,15 @@ const UpdateMoneyReceipt = () => {
             {...register("taka_in_word")}
           />
         </div>
-        <div>
+        {/* <div>
             <button className="btn btn-warning w-full my-10"> Update</button>
-        </div>
+        </div> */}
+         <div className="receivedBtn my-5">
+        <button type='submit'>Update</button>
+      </div>
       </form>
       <div className="">
         <small className="signature">Authorized Signature</small>
-      </div>
-      <div className="customerSignature">
-        <b>Customer Signature : </b>
-        <b>Trust Auto Solution</b>
       </div>
       <hr className="my-3" />
       <div className="text-center mt-5">
@@ -239,9 +237,8 @@ const UpdateMoneyReceipt = () => {
           www.trustautosolution.com
         </p>
         <p>
-          {" "}
           <b>Mobile:</b> 01821-216465, 01972-216465 , <b>Email:</b>{" "}
-          trustautosolution@gmail.com{" "}
+          trustautosolution@gmail.com
         </p>
       </div>
     </div>
